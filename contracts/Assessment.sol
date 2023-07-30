@@ -68,16 +68,15 @@ contract Assessment {
     function addition(uint a, uint b) public pure returns(uint){
         return a+b;
         
-        // emit Addition((a+b));
+        
     }
 
-    function substraction(uint a, uint b) public pure returns(uint){
-        require(a>=b,"value of a must me greater than b");
-        return a-b;
-    }
-
-    function multiplication(uint a, uint b) public pure returns(uint){
+     function multiplication(uint a, uint b) public pure returns(uint){
         return a*b;
     }
-    
+
+     function division(uint a, uint b) public pure returns(uint){
+        return a/b;
+    }
+
 }
