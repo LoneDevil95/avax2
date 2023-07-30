@@ -88,31 +88,31 @@ export default function HomePage() {
   const checkOwner = async () => {
     if (atm) {
       let owner = await atm.checkOwner();
-      setOwnerName("Moshahid Raza");
+      setOwnerName("Pratham");
     }
   }
   const addition = async () => {
       if (atm) {
-        const a = parseInt(inputA);
-        const b = parseInt(inputB);
+        const a = parseInt(first);
+        const b = parseInt(second);
         const answer = await atm.addition(a,b);
         setAdd(answer);
       }
   }  
-  const subtraction = async () => {
-    if (atm) {
-      const a = parseInt(inputA);
-      const b = parseInt(inputB);
-      const answer = await atm.substraction(a,b);
-      setSub(answer);
-    }
-  }
   const multiplication = async () => {
     if (atm) {
-      const a = parseInt(inputA);
-      const b = parseInt(inputB);
+      const a = parseInt(first);
+      const b = parseInt(second);
       const answer = await atm.multiplication(a,b);
-      setMult(answer);
+      setMultiply(answer);
+    }
+  }
+  const division = async () => {
+    if (atm) {
+      const a = parseInt(first);
+      const b = parseInt(second);
+      const answer = await atm.division(a,b);
+      setDivide(answer);
     }
   }
   const handleInputAChange = (event) => {
@@ -142,45 +142,45 @@ export default function HomePage() {
     return (
       <>
         <div>
-          <p style={{ fontFamily: "Sans-serif" }}>Your Account: {account}</p>
-          <p style={{ fontFamily: "Sans-serif" }}>Your Balance: {balance}</p>
-          <p style={{ fontFamily: "Sans-serif" }}>Owner Name: {ownerName}</p>
+          <p>Your Account: {account}</p>
+          <p>Your Balance: {balance}</p>
+          <p>Owner Name: {ownerName}</p>
   
           <button style={{ backgroundColor: "#cyan" }} onClick={deposit}>
             Deposit 1 ETH
           </button>
-          <button style={{ backgroundColor: "yellow" }} onClick={withdraw}>
+          <button style={{ backgroundColor: "blue" }} onClick={withdraw}>
             Withdraw 1 ETH
           </button>
         </div>
   
         <div>
           <h2>Calculator</h2>
-          <p style={{ fontFamily: "Sans-serif" }}>Add: {add ? add.toString() : ""}</p>
-          <p style={{ fontFamily: "Sans-serif" }}>Sub: {sub ? sub.toString() : ""}</p>
-          <p style={{ fontFamily: "Sans-serif" }}>Multiply: {mult ? mult.toString() : ""}</p>
+          <p>Add: {add ? add.toString() : ""}</p>
+          <p>Sub: {sub ? sub.toString() : ""}</p>
+          <p>Multiply: {mult ? mult.toString() : ""}</p>
 
           <input
             type="number"
-            placeholder="Enter value A"
-            value={inputA}
+            placeholder="Enter first value"
+            value={first}
             onChange={handleInputAChange}
           />
           <input
             type="number"
-            placeholder="Enter value B"
-            value={inputB}
+            placeholder="Enter second value"
+            value={second}
             onChange={handleInputBChange}
           />
   
-          <button style={{ backgroundColor: "grey" }} onClick={addition}>
+          <button style={{ backgroundColor: "red" }} onClick={addition}>
             Add
           </button>
-          <button style={{ backgroundColor: "grey" }} onClick={subtraction}>
-            Sub
-          </button>
-          <button style={{ backgroundColor: "grey" }} onClick={multiplication}>
+          <button style={{ backgroundColor: "red" }} onClick={multiplication}>
             Multiply
+          </button>
+          <button style={{ backgroundColor: "red" }} onClick={division}>
+            Divide
           </button>
         </div>
       </>
@@ -195,7 +195,7 @@ export default function HomePage() {
 
   return (
     <main className="container">
-      <header><h1>Welcome to the Crypto ATM!</h1></header>
+      <header><h1>Welcome </h1></header>
       {initUser()}
       <style jsx>{`
         .container {
